@@ -1,5 +1,4 @@
 # NewLife.Redis.Core
-NewLife.Redis的封装,支持.NETCore3/.NET5/.NET6
 
 <h1>一、项目说明</h1>
 <p>NewLife.Redis.Core基于新生命团队NewLife.Redis的封装,支持.NETCore3/.NET5/.NET6。</p>
