@@ -31,6 +31,16 @@ redis.SetAdd("settest", "2");
 //哈希
 redis.HashAdd("hashtest", "1", "2");
 redis.HashGet<string>("hashtest", new string[] { "1" });
+
+
+//队列操作
+//方式1
+var queue = redis.GetRedisQueue<string>("queue");
+queue.Add("test");
+var data = queue.Take(1);
+//方式2
+redis.AddQueue("queue", "1");
+redis.GetQueueOne<string>("queue");
 ```
 
 <h2>2.2 通过IOC注入</h2>
