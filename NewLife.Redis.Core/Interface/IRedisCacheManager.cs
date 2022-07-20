@@ -11,7 +11,7 @@ namespace NewLife.Redis.Core
     /// <summary>
     /// Redis管理中心
     /// </summary>
-    public interface IRedisCacheManager
+    public partial interface IRedisCacheManager
     {
         /// <summary>
         /// 获取FullRedis实例

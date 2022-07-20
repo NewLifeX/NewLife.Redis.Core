@@ -9,9 +9,8 @@ namespace NewLife.Redis.Core
 {
     /// <summary>
     /// Redis管理中心
-    /// 可信队列
     /// </summary>
-    public interface IRedisCacheManagerReliable
+    public partial interface IRedisCacheManager
     {
         /// <summary>
         /// 添加到可信队列

@@ -1,13 +1,14 @@
 ﻿using NewLife.Caching;
 using NewLife.Caching.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NewLife.Redis.Core
 {
     /// <summary> 
     /// Redis管理中心
-    /// 可重复消费队列
     /// </summary>
-    public interface IRedisCacheManagerSteam
+    public partial interface IRedisCacheManager
     {
         /// <summary>
         /// 添加到队列

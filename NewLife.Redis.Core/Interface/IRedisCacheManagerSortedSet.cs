@@ -9,9 +9,8 @@ namespace NewLife.Redis.Core
 {
     /// <summary>
     /// Redis管理中心
-    /// SortedSet
     /// </summary>
-    public interface IRedisCacheManagerSortedSet
+    public partial interface IRedisCacheManager
     {
         /// <summary>
         /// 获取RedisSort实例

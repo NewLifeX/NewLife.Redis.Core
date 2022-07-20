@@ -10,9 +10,8 @@ namespace NewLife.Redis.Core
 {
     /// <summary>
     /// Redis管理中心
-    /// 哈希列表
     /// </summary>
-    public interface IRedisCacheManagerHashMap
+    public partial interface IRedisCacheManager
     {
         /// <summary>
         /// 获取HashMap实例

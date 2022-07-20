@@ -9,9 +9,8 @@ namespace NewLife.Redis.Core
 {
     /// <summary>
     /// Redis管理中心
-    /// 普通队列
     /// </summary>
-    public interface IRedisCacheManagerQueue
+    public partial interface IRedisCacheManager
     {
         /// <summary>
         /// 添加到队列

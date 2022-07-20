@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace NewLife.Redis.Core
 {
-    /// <inheritdoc cref="IRedisCacheManagerQueue" />
-    public partial class NewLifeRedis : IRedisCacheManagerQueue
+    /// <summary>
+    /// 普通队列 
+    /// </summary>
+    public partial class NewLifeRedis : IRedisCacheManager
     {
 
         /// <inheritdoc />

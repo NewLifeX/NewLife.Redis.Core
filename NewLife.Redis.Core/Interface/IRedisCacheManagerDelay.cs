@@ -9,9 +9,8 @@ namespace NewLife.Redis.Core
 {
     /// <summary>
     /// Redis管理中心
-    /// 延迟队列
     /// </summary>
-    public interface IRedisCacheManagerDelay
+    public partial interface IRedisCacheManager
     {
         /// <summary>
         /// 添加一条数据到延迟队列

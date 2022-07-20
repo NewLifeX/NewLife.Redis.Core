@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace NewLife.Redis.Core
 {
-    /// <inheritdoc cref="IRedisCacheManagerSet" />
-    public partial class NewLifeRedis : IRedisCacheManagerSet
+    /// <summary>
+    /// Set
+    /// </summary>
+    public partial class NewLifeRedis : IRedisCacheManager
     {
 
         /// <inheritdoc />

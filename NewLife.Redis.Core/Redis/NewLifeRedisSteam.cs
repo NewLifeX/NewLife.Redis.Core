@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace NewLife.Redis.Core
 {
-    /// <inheritdoc cref="IRedisCacheManagerSteam" />
-    public partial class NewLifeRedis : IRedisCacheManagerSteam
+    /// <summary>
+    /// 可重复消费队列
+    /// </summary>
+    public partial class NewLifeRedis : IRedisCacheManager
     {
         /// <inheritdoc/>
         public RedisStream<T> GetRedisStream<T>(string key)

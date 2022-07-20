@@ -1,9 +1,12 @@
 ﻿using NewLife.Caching;
+using System.Collections.Generic;
 
 namespace NewLife.Redis.Core
 {
-    /// <inheritdoc cref="IRedisCacheManagerDelay" />
-    public partial class NewLifeRedis : IRedisCacheManagerDelay
+    /// <summary>
+    /// 延迟队列
+    /// </summary>
+    public partial class NewLifeRedis : IRedisCacheManager
     {
 
 

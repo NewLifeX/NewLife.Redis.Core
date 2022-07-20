@@ -10,9 +10,8 @@ namespace NewLife.Redis.Core
 {
     /// <summary>
     /// Redis管理中心
-    /// Set
     /// </summary>
-    public interface IRedisCacheManagerSet
+    public partial interface IRedisCacheManager
     {
         /// <summary>
         /// 获取RedisSet实例

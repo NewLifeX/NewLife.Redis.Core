@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace NewLife.Redis.Core
 {
-    /// <inheritdoc cref="IRedisCacheManager" />
+    /// <summary>
+    /// 基础
+    /// </summary>
     public partial class NewLifeRedis : IRedisCacheManager
     {
         private readonly string redisConnenctionString;
