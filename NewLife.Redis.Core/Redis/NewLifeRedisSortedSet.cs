@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace NewLife.Redis.Core
 {
-    /// <inheritdoc cref="IRedisCacheManagerSortSet" />
-    public partial class NewLifeRedis : IRedisCacheManagerSortSet
+    /// <inheritdoc cref="IRedisCacheManagerSortedSet" />
+    public partial class NewLifeRedis : IRedisCacheManagerSortedSet
     {
         /// <inheritdoc  />
         public RedisSortedSet<T> GetRedisSortedSet<T>(string key)
