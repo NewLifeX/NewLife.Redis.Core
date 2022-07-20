@@ -37,7 +37,11 @@ redis.HashGet<string>("hashtest", new string[] { "1" });
 <p>ConfigureServices里注册组件</p>
 
 ```csharp
-services.AddRedisCacheManager("server=127.0.0.1:6379;password=xxxx;db=4");
+        //默认读取配置文件：ConnectionStrings:Redis
+        services.AddRedisCacheManager();
+
+        //指定链接字符串
+        services.AddRedisCacheManager("server=127.0.0.1:6379;password=Shiny123456;db=4");
 ```
 
 <p>构造函数里注入IRedisCacheManager</p>
