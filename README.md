@@ -10,16 +10,15 @@
 ```csharp
 using NewLife.Redis.Core;
 
-
 NewLifeRedis redis = new NewLifeRedis("server=127.0.0.1:6379;password=Shiny123456;db=4");
 
 //普通操作
 redis.Set("test", "1");
-Console.WriteLine(redis.Get&lt;string&gt;("test"));
+Console.WriteLine(redis.Get<string>("test"));
 
 //列表
 redis.ListAdd("listtest", 1);
-redis.ListGetAll&lt;string&gt;("listtest");
+redis.ListGetAll<string>("listtest");
 
 //SortedSet
 redis.SortedSetAdd("sortsettest", "1", 1.0);
@@ -31,7 +30,7 @@ redis.SetAdd("settest", "2");
 
 //哈希
 redis.HashAdd("hashtest", "1", "2");
-redis.HashGet&lt;string&gt;("hashtest", new string[] { "1" });
+redis.HashGet<string>("hashtest", new string[] { "1" });
 ```
 
 <h2>2.2 通过IOC注入</h2>
