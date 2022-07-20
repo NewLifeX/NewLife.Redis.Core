@@ -7,7 +7,9 @@
 <h1>二、使用说明</h1>
 <h2>2.1 通过New的方式安装使用</h2>
 
-<pre class="language-csharp highlighter-hljs"><code>using NewLife.Redis.Core;
+```csharp
+using NewLife.Redis.Core;
+
 
 NewLifeRedis redis = new NewLifeRedis("server=127.0.0.1:6379;password=Shiny123456;db=4");
 
@@ -29,19 +31,28 @@ redis.SetAdd("settest", "2");
 
 //哈希
 redis.HashAdd("hashtest", "1", "2");
-redis.HashGet&lt;string&gt;("hashtest", new string[] { "1" });</code></pre>
+redis.HashGet&lt;string&gt;("hashtest", new string[] { "1" });
+```
+
 <h2>2.2 通过IOC注入</h2>
 <p>ConfigureServices里注册组件</p>
-<pre class="language-csharp highlighter-hljs"><code>services.AddRedisCacheManager("server=127.0.0.1:6379;password=xxxx;db=4");</code></pre>
+
+```csharp
+services.AddRedisCacheManager("server=127.0.0.1:6379;password=xxxx;db=4");
+```
+
 <p>构造函数里注入IRedisCacheManager</p>
-<pre class="language-csharp highlighter-hljs"><code>        private readonly ILogger&lt;Worker&gt; _logger;
+
+```csharp
+        private readonly ILogger<Worker> _logger;
         private readonly IRedisCacheManager _redisCacheManager;
 
-        public Worker(ILogger&lt;Worker&gt; logger, IRedisCacheManager redisCacheManager)
+        public Worker(ILogger<Worker> logger, IRedisCacheManager redisCacheManager)
         {
             _logger = logger;
             this._redisCacheManager = redisCacheManager;
 
-            var data = _redisCacheManager.Get&lt;string&gt;("test");
-        }</code></pre>
-<p>&nbsp;</p>
+            var data = _redisCacheManager.Get<string>("test");
+        }
+```
+
