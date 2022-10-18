@@ -48,8 +48,8 @@ namespace NewLife.Redis.Core
             {
                 queue.Consumer = consumer;
             }
-            var gorups = queue.GetGroups().Select(it => it.Name).ToList();//获取所有消费组
-            if (!group.Contains(group))//如果消费组存在
+            var groups = queue.GetGroups().Select(it => it.Name).ToList();//获取所有消费组
+            if (!groups.Contains(group))//如果消费组存在
             {
                 queue.FromLastOffset = true;
             }
