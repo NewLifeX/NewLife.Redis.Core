@@ -53,6 +53,7 @@ namespace NewLife.Redis.Core
             }
             this.redisConnenctionString = redisConfiguration;
             this.redisConnection = GetRedisConnection();
+
         }
 
 
