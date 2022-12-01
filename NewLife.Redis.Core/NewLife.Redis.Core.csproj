@@ -20,7 +20,16 @@
 		<LangVersion>latest</LangVersion>
 		<PackageIcon>leaf.png</PackageIcon>
 		<Authors>$(Company)</Authors>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Doc\newlife.snk</AssemblyOriginatorKeyFile>
+    <PackageReadmeFile>Readme.MD</PackageReadmeFile>
 	</PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
 		<NoWarn>1701;1702;8616;8618;8603</NoWarn>
@@ -52,11 +61,17 @@
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
+  <ItemGroup>
+    <None Include="..\Readme.MD">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
-		<PackageReference Include="NewLife.Redis" Version="5.0.2022.1101" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+		<PackageReference Include="NewLife.Redis" Version="5.0.2022.1201" />
 	</ItemGroup>
 
 </Project>
