@@ -44,14 +44,14 @@ namespace NewLife.Redis.Core
         }
 
         /// <inheritdoc />
-        public T GetQueueOne<T>(string key)
+        public T GetQueueOne<T>(string key, int timeout = 1)
         {
             var queue = GetRedisQueue<T>(key);
-            return queue.TakeOne(1);
+            return queue.TakeOne(timeout);
         }
 
         /// <inheritdoc />
-        public async Task<T> GetQueueOneAsync<T>(string key)
+        public async Task<T> GetQueueOneAsync<T>(string key, int timeout = 1)
         {
             var queue = GetRedisQueue<T>(key);
             return await queue.TakeOneAsync(1);

@@ -52,15 +52,17 @@ namespace NewLife.Redis.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key">键</param>
+        /// <param name="timeout">阻塞时间</param>
         /// <returns>数据</returns>
-        T GetQueueOne<T>(string key);
+        T GetQueueOne<T>(string key, int timeout = 1);
 
         /// <summary>
         /// 异步取一条数据
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key">键</param>
+        /// <param name="timeout">阻塞时间</param>
         /// <returns>数据</returns>
-        Task<T> GetQueueOneAsync<T>(string key);
+        Task<T> GetQueueOneAsync<T>(string key, int timeout = 1);
     }
 }

@@ -1,7 +1,7 @@
 # NewLife.Redis.Core
 
 <h1>一、项目说明</h1>
-<p>NewLife.Redis.Core基于新生命团队NewLife.Redis的封装,支持.NETCore3/.NET5/.NET6。</p>
+<p>NewLife.Redis.Core基于新生命团队NewLife.Redis的封装,支持.NETCore3/.NET5/.NET6/.NET7。</p>
 <p dir="auto"><span style="color: #e03e2d;">NewLife.Redis</span> 是一个Redis客户端组件，以高性能处理大数据实时计算为目标。</p>
 <p dir="auto">源码：&nbsp;<a href="https://github.com/NewLifeX/NewLife.Redis">https://github.com/NewLifeX/NewLife.Redis</a><br />Nuget：NewLife.Redis<br />教程：<a href="https://newlifex.com/core/redis" rel="nofollow">https://newlifex.com/core/redis</a></p>
 <h1>二、使用说明</h1>
@@ -10,7 +10,7 @@
 ```csharp
 using NewLife.Redis.Core;
 
-NewLifeRedis redis = new NewLifeRedis("server=127.0.0.1:6379;password=Shiny123456;db=4");
+NewLifeRedis redis = new NewLifeRedis("server=127.0.0.1:6379;password=xxx;db=4");
 
 //普通操作
 redis.Set("test", "1");
@@ -51,7 +51,7 @@ redis.GetQueueOne<string>("queue");
         services.AddRedisCacheManager();
 
         //指定链接字符串
-        services.AddRedisCacheManager("server=127.0.0.1:6379;password=Shiny123456;db=4");
+        services.AddRedisCacheManager("server=127.0.0.1:6379;password=xxx;db=4");
 ```
 
 <p>构造函数里注入IRedisCacheManager</p>

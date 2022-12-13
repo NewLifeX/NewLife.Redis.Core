@@ -5,10 +5,10 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<AssemblyTitle>新生命Redis客户端组件.NET Core版本</AssemblyTitle>
-		<Description>NewLife.Redis的封装,支持.NETCore3/.NET5/.NET6 教程:https://www.cnblogs.com/huguodong/p/16498154.html</Description>
+		<Description>NewLife.Redis的封装,支持.NETCore3/.NET5/.NET6/.NET7 教程:https://www.cnblogs.com/huguodong/p/16498154.html</Description>
 		<Company>新生命开发团队</Company>
 		<Copyright>©2002-2022 新生命开发团队</Copyright>
-		<VersionPrefix>1.2</VersionPrefix>
+		<VersionPrefix>1.3</VersionPrefix>
 		<VersionSuffix>$([System.DateTime]::Now.ToString(`yyyy.MMdd`))</VersionSuffix>
 		<Version>$(VersionPrefix).$(VersionSuffix)</Version>
 		<FileVersion>$(Version)</FileVersion>
@@ -54,9 +54,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
-		<PackageReference Include="NewLife.Redis" Version="5.0.2022.1101" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+		<PackageReference Include="NewLife.Redis" Version="5.0.2022.1201" />
 	</ItemGroup>
 
 </Project>
