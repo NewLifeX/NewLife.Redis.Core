@@ -58,6 +58,15 @@ namespace NewLife.Redis.Core
         List<T> HashGet<T>(string key, params string[] fields);
 
         /// <summary>
+        /// 根据键获取hash列表中的值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key">键</param>
+        /// <param name="field">hash键</param>
+        /// <returns></returns>
+        T HashGetOne<T>(string key, string field);
+
+        /// <summary>
         /// 获取所有键值对
         /// </summary>
         /// <typeparam name="T"></typeparam>

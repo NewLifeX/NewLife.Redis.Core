@@ -42,7 +42,13 @@ namespace NewLife.Redis.Core
             return result.ToList();
         }
 
-
+        /// <inheritdoc />
+        public T HashGetOne<T>(string key, string field)
+        {
+            var hash = GetHashMap<T>(key);
+            var result = hash.HMGet(new string[] { field });
+            return result[0];
+        }
 
         /// <inheritdoc />
         public IDictionary<string, T> HashGetAll<T>(string key)
