@@ -11,7 +11,7 @@ namespace NewLife.Redis.Core
     /// <summary>
     /// 列表
     /// </summary>
-    public partial class NewLifeRedis : IRedisCacheManager
+    public partial class NewLifeRedis : INewLifeRedis
     {
         /// <inheritdoc />
         public RedisList<T> GetRedisList<T>(string key)

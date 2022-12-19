@@ -1,19 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
 using NewLife.Caching;
 using NewLife.Caching.Models;
-using NewLife.Redis.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewLife.Redis.Core
 {
     /// <summary>
     /// 基础
     /// </summary>
-    public partial class NewLifeRedis : IRedisCacheManager
+    public partial class NewLifeRedis : INewLifeRedis
     {
         private readonly string redisConnenctionString;
         /// <summary>

@@ -11,7 +11,7 @@ namespace NewLife.Redis.Core
     /// <summary>
     /// SortedSet
     /// </summary>
-    public partial class NewLifeRedis : IRedisCacheManager
+    public partial class NewLifeRedis : INewLifeRedis
     {
         /// <inheritdoc  />
         public RedisSortedSet<T> GetRedisSortedSet<T>(string key)

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
+using NewLife.Redis.Core;
 
 namespace NewLife.Redis.Core
 {
@@ -14,10 +14,10 @@ namespace NewLife.Redis.Core
         /// </summary>
         /// <param name="services"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void AddRedisCacheManager(this IServiceCollection services)
+        public static void AddNewLifeRedis(this IServiceCollection services)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
-            services.AddSingleton<IRedisCacheManager, NewLifeRedis>();
+            services.AddSingleton<INewLifeRedis, NewLifeRedis>();
 
         }
 
@@ -27,11 +27,55 @@ namespace NewLife.Redis.Core
         /// <param name="services"></param>
         /// <param name="redisConfiguration">Redis链接字符串</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void AddRedisCacheManager(this IServiceCollection services, string redisConfiguration)
+        public static void AddNewLifeRedis(this IServiceCollection services, string redisConfiguration)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
-            services.AddSingleton<IRedisCacheManager, NewLifeRedis>(x => new NewLifeRedis(redisConfiguration));
+            services.AddSingleton<INewLifeRedis, NewLifeRedis>(x => new NewLifeRedis(redisConfiguration));
 
+        }
+
+        /// <summary>
+        /// 添加Redis缓存中心服务
+        /// </summary>
+        /// <param name="services"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void AddRedisCacheManager(this IServiceCollection services)
+        {
+            if (services == null) throw new ArgumentNullException(nameof(services));
+
+            services.AddSingleton<IRedisCacheManager, RedisCacheManager>();
+
+        }
+
+
+        /// <summary>
+        /// 添加Redis缓存中心服务
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configuration">IConfiguration</param>
+        /// <param name="section">配置文件节点</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void AddRedisCacheManager(this IServiceCollection services, IConfiguration configuration, string section = "ConnectionStrings:Redis")
+        {
+            if (services == null) throw new ArgumentNullException(nameof(services));
+            List<RedisConfig> configs = new List<RedisConfig>();
+            configuration.GetSection(section).Bind(configs);//获取配置
+            services.AddSingleton<IRedisCacheManager, RedisCacheManager>(x => new RedisCacheManager(configs));
+
+        }
+
+
+        /// <summary>
+        /// 添加Redis缓存中心服务
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configs">配置列表</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void AddRedisCacheManager(this IServiceCollection services, List<RedisConfig> configs)
+        {
+            if (services == null) throw new ArgumentNullException(nameof(services));
+            if (configs == null) throw new ArgumentNullException(nameof(configs));
+            services.AddSingleton<IRedisCacheManager, RedisCacheManager>(x => new RedisCacheManager(configs));
         }
     }
 }

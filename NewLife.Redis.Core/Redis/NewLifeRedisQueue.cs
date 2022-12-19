@@ -11,7 +11,7 @@ namespace NewLife.Redis.Core
     /// <summary>
     /// 普通队列 
     /// </summary>
-    public partial class NewLifeRedis : IRedisCacheManager
+    public partial class NewLifeRedis : INewLifeRedis
     {
 
         /// <inheritdoc />

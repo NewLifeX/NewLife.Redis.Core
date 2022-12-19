@@ -8,61 +8,67 @@ using System.Threading.Tasks;
 namespace NewLife.Redis.Core
 {
     /// <summary>
-    /// Redis管理中心
+    /// Redis实例
     /// </summary>
-    public partial interface IRedisCacheManager
+    public partial interface INewLifeRedis
     {
         /// <summary>
-        /// 添加到队列
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="key">键</param>
-        /// <param name="value">值数组</param>
-        /// <returns>添加数量</returns>
-        int AddQueue<T>(string key, T[] value);
-
-        /// <summary>
-        /// 添加到队列
+        /// 添加到可信队列
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key">键</param>
         /// <param name="value">值</param>
         /// <returns>添加数量</returns>
-        int AddQueue<T>(string key, T value);
+        int AddReliableQueue<T>(string key, T value);
 
         /// <summary>
-        /// 获取队列实例
+        /// 批量添加到可信队列
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key">键</param>
-        /// <returns>队列实例</returns>
-        RedisQueue<T> GetRedisQueue<T>(string key);
+        /// <param name="value">值</param>
+        /// <returns>添加数量</returns>
+        int AddReliableQueueList<T>(string key, List<T> value);
 
         /// <summary>
-        /// 从队列中获取数据
+        /// 获取可信队列实例
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key">键</param>
-        /// <param name="Count">数量</param>
+        /// <returns>可信队列实例</returns>
+        RedisReliableQueue<T> GetRedisReliableQueue<T>(string key);
+
+        /// <summary>
+        /// 从可信队列获取数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key">键</param>
+        /// <param name="count">数量</param>
         /// <returns>数据列表</returns>
-        List<T> GetQueue<T>(string key, int Count = 1);
+        List<T> ReliableTake<T>(string key, int count);
 
         /// <summary>
-        /// 取一条数据
+        /// 从可信队列获取一条数据
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key">键</param>
-        /// <param name="timeout">阻塞时间</param>
         /// <returns>数据</returns>
-        T GetQueueOne<T>(string key, int timeout = 1);
+        T ReliableTakeOne<T>(string key);
 
         /// <summary>
-        /// 异步取一条数据
+        /// 异步从可信队列获取一条数据
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key">键</param>
-        /// <param name="timeout">阻塞时间</param>
         /// <returns>数据</returns>
-        Task<T> GetQueueOneAsync<T>(string key, int timeout = 1);
+        Task<T> ReliableTakeOneAsync<T>(string key);
+
+        /// <summary>
+        /// 回滚所有未消费完成的数据
+        /// </summary>
+        /// <param name="key">键</param>
+        /// <param name="retryInterval">间隔</param>
+        /// <returns>回滚数量</returns>
+        int RollbackAllAck(string key, int retryInterval = 60);
     }
 }

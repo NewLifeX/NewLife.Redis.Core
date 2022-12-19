@@ -6,7 +6,7 @@ namespace NewLife.Redis.Core
     /// <summary>
     /// 延迟队列
     /// </summary>
-    public partial class NewLifeRedis : IRedisCacheManager
+    public partial class NewLifeRedis : INewLifeRedis
     {
 
 

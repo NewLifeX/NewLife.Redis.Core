@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace NewLife.Redis.Core
 {
     /// <summary>
-    /// Redis管理中心
+    /// Redis实例
     /// </summary>
-    public partial interface IRedisCacheManager
+    public partial interface INewLifeRedis
     {
         /// <summary>
         /// 获取RedisSet实例

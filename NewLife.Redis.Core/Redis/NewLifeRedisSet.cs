@@ -12,7 +12,7 @@ namespace NewLife.Redis.Core
     /// <summary>
     /// Set
     /// </summary>
-    public partial class NewLifeRedis : IRedisCacheManager
+    public partial class NewLifeRedis : INewLifeRedis
     {
 
         /// <inheritdoc />

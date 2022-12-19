@@ -12,7 +12,7 @@ namespace NewLife.Redis.Core
     /// <summary>
     /// 可重复消费队列
     /// </summary>
-    public partial class NewLifeRedis : IRedisCacheManager
+    public partial class NewLifeRedis : INewLifeRedis
     {
         /// <inheritdoc/>
         public RedisStream<T> GetRedisStream<T>(string key)

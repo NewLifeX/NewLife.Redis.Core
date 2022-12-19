@@ -11,7 +11,7 @@ namespace NewLife.Redis.Core
     /// <summary>
     /// 可信队列
     /// </summary>
-    public partial class NewLifeRedis : IRedisCacheManager
+    public partial class NewLifeRedis : INewLifeRedis
     {
         /// <inheritdoc  />
         public RedisReliableQueue<T> GetRedisReliableQueue<T>(string key)
