@@ -32,6 +32,9 @@ redis.GetQueueOne&lt;string&gt;("queue");</code></pre>
 <h3>2.1.2 多客户端模式</h3>
 <pre class="language-csharp highlighter-hljs"><code>var redisCacheManager = new RedisCacheManager(new List&lt;RedisConfig&gt; { new RedisConfig { Name = "1", ConnectionString = "xxx" } });
 redisCacheManager.AddRedis(new RedisConfig { Name = "2", ConnectionString = "xx" });
+//支持动态添加和删除
+redisCacheManager.AddRedis(new RedisConfig { Name = "test", ConnectionString = "xx" });
+redisCacheManager.RemoveRedis("test");
 var redis = redisCacheManager.GetRedis("2");
 //普通操作
 redis.Set("test", "1");
@@ -96,6 +99,9 @@ newLifeRedis = redisCacheManager.GetRedis("1");
 newLifeRedis.Set("TEST", "test");
 newLifeRedis = redisCacheManager.GetRedis("2");
 newLifeRedis.Set("TEST", "test");
+//支持动态添加和删除
+redisCacheManager.AddRedis(new RedisConfig { Name = "test", ConnectionString = "xx" });
+redisCacheManager.RemoveRedis("test");
 }</code></pre>
 <h1>三、实现消息队列</h1>
 <p><span style="font-size: 24px;">详情可以看我的这篇文章：<a href="https://www.cnblogs.com/huguodong/p/16434717.html" target="_blank" rel="noopener">.Net大杀器之基于Newlife.Redis的可重复消费+共享订阅队列来替换第三方MQ</a></span></p>
