@@ -29,6 +29,32 @@ var data = queue.Take(1);
 //方式2
 redis.AddQueue("queue", "1");
 redis.GetQueueOne&lt;string&gt;("queue");</code></pre>
+<h3>2.1.2 多客户端模式</h3>
+<pre class="language-csharp highlighter-hljs"><code>var redisCacheManager = new RedisCacheManager(new List&lt;RedisConfig&gt; { new RedisConfig { Name = "1", ConnectionString = "xxx" } });
+redisCacheManager.AddRedis(new RedisConfig { Name = "2", ConnectionString = "xx" });
+var redis = redisCacheManager.GetRedis("2");
+//普通操作
+redis.Set("test", "1");
+Console.WriteLine(redis.Get&lt;string&gt;("test"));
+//列表
+redis.ListAdd("listtest", 1);
+redis.ListGetAll&lt;string&gt;("listtest");
+//SortedSet
+redis.SortedSetAdd("sortsettest", "1", 1.0);
+redis.SortedSetIncrement("sortsettest", "1", 1.0);
+//set
+redis.SetAdd("settest", "2");
+//哈希
+redis.HashAdd("hashtest", "1", "2");
+redis.HashGet&lt;string&gt;("hashtest", new string[] { "1" });
+//队列操作
+//方式1
+var queue = redis.GetRedisQueue&lt;string&gt;("queue");
+queue.Add("test");
+var data = queue.Take(1);
+//方式2
+redis.AddQueue("queue", "1");
+redis.GetQueueOne&lt;string&gt;("queue");</code></pre>
 <h2>2.2 通过IOC注入（推荐）</h2>
 <h3>2.2.1 单客户端注入</h3>
 <p>ConfigureServices里注册组件</p>
