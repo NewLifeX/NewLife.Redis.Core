@@ -58,8 +58,8 @@ namespace NewLife.Redis.Core
         public static void AddRedisCacheManager(this IServiceCollection services, IConfiguration configuration, string section = "ConnectionStrings:Redis")
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
-            List<RedisConfig> configs = new List<RedisConfig>();
-            configuration.GetSection(section).Bind(configs);//获取配置
+            List<RedisConfig> configs = configuration.GetSection(section).Get<List<RedisConfig>>();//获取配置
+            if (configs == null) throw new ArgumentNullException("Redis配置文件未找到", nameof(configs));
             services.AddSingleton<IRedisCacheManager, RedisCacheManager>(x => new RedisCacheManager(configs));
 
         }

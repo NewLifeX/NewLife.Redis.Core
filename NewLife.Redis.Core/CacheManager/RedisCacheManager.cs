@@ -19,8 +19,8 @@ namespace NewLife.Redis.Core
         /// <exception cref="ArgumentException"></exception>
         public RedisCacheManager(IConfiguration configuration)
         {
-            List<RedisConfig> configs = new List<RedisConfig>();
-            configuration.GetSection("ConnectionStrings:Redis").Bind(configs);//获取配置
+            List<RedisConfig> configs = configuration.GetSection("ConnectionStrings:Redis").Get<List<RedisConfig>>();//获取配置
+            if (configs == null) throw new ArgumentNullException("Redis配置文件未找到", nameof(configs));
             AddRedisConnections(configs);
         }
 
