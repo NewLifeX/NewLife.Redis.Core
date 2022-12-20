@@ -1,7 +1,5 @@
 ﻿using NewLife.Caching;
 using NewLife.Caching.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace NewLife.Redis.Core
 {

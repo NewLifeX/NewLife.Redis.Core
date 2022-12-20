@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NewLife.Redis.Core
+﻿namespace NewLife.Redis.Core
 {
     /// <summary>
     /// redis配置
