@@ -1,5 +1,6 @@
 ﻿using NewLife.Caching;
 using NewLife.Caching.Models;
+using NewLife.Caching.Queues;
 
 namespace NewLife.Redis.Core
 {

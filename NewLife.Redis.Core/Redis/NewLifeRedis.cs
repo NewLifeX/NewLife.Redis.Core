@@ -123,7 +123,7 @@ namespace NewLife.Redis.Core
                 return 0;
             //pattern = Regex.Replace(pattern, @"\{*.\}", "(.*)");
             //var keys = redisConnection.Search(new SearchModel { Pattern = pattern });
-            var keys = redisConnection.Keys.Where(k => k.StartsWith(pattern));
+            var keys = redisConnection.Keys?.Where(k => k.StartsWith(pattern));
             //var keys = GetAllKeys().Where(k => k.StartsWith(pattern));
             if (keys != null && keys.Any())
                 return redisConnection.Remove(keys.ToArray());
