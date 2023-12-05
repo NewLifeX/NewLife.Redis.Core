@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<AssemblyTitle>新生命Redis客户端组件.NET Core版本</AssemblyTitle>
-		<Description>NewLife.Redis的扩展封装,依赖于NewLife.Redis 仅仅是另一种使用风格!,支持.NETCore3/.NET5/.NET6/.NET7 教程:https://www.cnblogs.com/huguodong/p/16498154.html</Description>
+		<Description>NewLife.Redis的扩展封装,依赖于NewLife.Redis 仅仅是另一种使用风格!,支持.NETCore3/.NET5/.NET6/.NET7/.NET8 教程:https://www.cnblogs.com/huguodong/p/16498154.html</Description>
 		<Company>新生命开发团队</Company>
 		<Copyright>©2002-2022 新生命开发团队</Copyright>
 		<VersionPrefix>1.9</VersionPrefix>
