@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0;net7.0;net6.0;netcoreapp3.1</TargetFrameworks>
+		<TargetFrameworks>net8.0;net7.0;net6.0;netcoreapp3.1;net9.0</TargetFrameworks>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<AssemblyTitle>新生命Redis客户端组件.NET Core版本</AssemblyTitle>
@@ -67,14 +67,21 @@
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
-
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net9.0'">
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.4" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="9.0.4" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.4" />
+		<PackageReference Include="NewLife.Redis" Version="6.1.2025.401" />
+	</ItemGroup>
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net8.0'">
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
-		<PackageReference Include="NewLife.Redis" Version="5.5.2023.1201" />
+		<PackageReference Include="NewLife.Redis" Version="6.1.2025.401" />
 	</ItemGroup>
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0'">
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
@@ -82,7 +89,7 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
-		<PackageReference Include="NewLife.Redis" Version="5.5.2023.1201" />
+		<PackageReference Include="NewLife.Redis" Version="6.1.2025.401" />
 	</ItemGroup>
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net6.0'">
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
@@ -90,7 +97,7 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
-		<PackageReference Include="NewLife.Redis" Version="5.5.2023.1201" />
+		<PackageReference Include="NewLife.Redis" Version="6.1.2025.401" />
 	</ItemGroup>
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1'">
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.32" />
@@ -98,7 +105,7 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.32" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="3.1.32" />
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.32" />
-		<PackageReference Include="NewLife.Redis" Version="5.5.2023.1201" />
+		<PackageReference Include="NewLife.Redis" Version="6.1.2025.401" />
 	</ItemGroup>
 
 </Project>
