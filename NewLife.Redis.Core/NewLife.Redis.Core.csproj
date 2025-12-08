@@ -1,47 +1,47 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0;net7.0;net6.0;netcoreapp3.1;net9.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;net7.0;net6.0;netcoreapp3.1;net9.0;net10.0</TargetFrameworks>
 		<AssemblyTitle>新生命Redis客户端组件.NET Core版本</AssemblyTitle>
 		<Description>NewLife.Redis的扩展封装,依赖于NewLife.Redis 仅仅是另一种使用风格!,支持.NETCore3/.NET5/.NET6/.NET7/.NET8 教程:https://www.cnblogs.com/huguodong/p/16498154.html</Description>
 		<Company>新生命开发团队</Company>
 		<Copyright>©2002-2025 新生命开发团队</Copyright>
 		<VersionPrefix>2.0</VersionPrefix>
-    <VersionSuffix>$([System.DateTime]::Now.ToString(`yyyy.MMdd`))</VersionSuffix>
-    <Version>$(VersionPrefix).$(VersionSuffix)</Version>
-    <FileVersion>$(Version)</FileVersion>
-    <AssemblyVersion>$(VersionPrefix).$([System.DateTime]::Now.ToString(`yyyy.MMdd`))</AssemblyVersion>
-    <OutputPath>..\Bin</OutputPath>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<VersionSuffix>$([System.DateTime]::Now.ToString(`yyyy.MMdd`))</VersionSuffix>
+		<Version>$(VersionPrefix).$(VersionSuffix)</Version>
+		<FileVersion>$(Version)</FileVersion>
+		<AssemblyVersion>$(VersionPrefix).$([System.DateTime]::Now.ToString(`yyyy.MMdd`))</AssemblyVersion>
+		<OutputPath>..\Bin</OutputPath>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
 		<SignAssembly>True</SignAssembly>
 		<AssemblyOriginatorKeyFile>..\Doc\newlife.snk</AssemblyOriginatorKeyFile>
-    <NoWarn>1701;1702;NU5104;NU1505;NETSDK1138;CS7035</NoWarn>
-    <AnalysisLevel>latest</AnalysisLevel>
-    <WarningsAsErrors>CA2007</WarningsAsErrors>
-  </PropertyGroup>
+		<NoWarn>1701;1702;NU5104;NU1505;NETSDK1138;CS7035</NoWarn>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<WarningsAsErrors>CA2007</WarningsAsErrors>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <PackageId>$(AssemblyName)</PackageId>
-    <Authors>$(Company)</Authors>
-    <PackageProjectUrl>https://newlifex.com/core/redis</PackageProjectUrl>
-    <PackageIcon>leaf.png</PackageIcon>
-    <RepositoryUrl>https://github.com/NewLifeX/NewLife.Redis.Core</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>新生命团队;X组件;NewLife;$(AssemblyName)</PackageTags>
-    <PackageReleaseNotes>a</PackageReleaseNotes>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackageReadmeFile>Readme.MD</PackageReadmeFile>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-  </PropertyGroup>
+	<PropertyGroup>
+		<PackageId>$(AssemblyName)</PackageId>
+		<Authors>$(Company)</Authors>
+		<PackageProjectUrl>https://newlifex.com/core/redis</PackageProjectUrl>
+		<PackageIcon>leaf.png</PackageIcon>
+		<RepositoryUrl>https://github.com/NewLifeX/NewLife.Redis.Core</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>新生命团队;X组件;NewLife;$(AssemblyName)</PackageTags>
+		<PackageReleaseNotes>a</PackageReleaseNotes>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageReadmeFile>Readme.MD</PackageReadmeFile>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	</PropertyGroup>
 
-  <ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -60,6 +60,14 @@
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net10.0'">
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="10.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.0" />
+		<PackageReference Include="NewLife.Redis" Version="6.2.2025.503" />
+	</ItemGroup>
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net9.0'">
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.4" />
@@ -74,7 +82,7 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
-		<PackageReference Include="NewLife.Redis" Version="6.2.2025.503" />
+		<PackageReference Include="NewLife.Redis" Version="6.4.2025.1113" />
 	</ItemGroup>
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0'">
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
